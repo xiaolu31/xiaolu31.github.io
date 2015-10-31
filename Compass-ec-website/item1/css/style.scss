@@ -1,0 +1,24 @@
+@charset "utf-8";
+@import "themes/_public";
+
+@mixin fl{
+	float:left;
+}
+@mixin fr{
+	float:right;
+}
+@mixin clearfix{
+	content:"";
+	height:0;
+	visibility:hidden;
+	display:block;
+	clear:both;
+}
+@mixin gradient($gredient_first:#FFFFFF,$gradient_last:#f8f8f8){
+	background:-moz-linear-gradient(top,$gredient_first,$gradient_last);
+	background:-webkit-linear-gradient(top, $gredient_first, $gradient_last);
+	background:-ms-linear-gradient(top,$gredient_first,$gradient_last);
+	background:linear-gradient(top, $gredient_first,$gradient_last);
+	-ms-filter:"progid:DXImageTransform.Microsoft.gradient (GradientType=0, startColorstr=$gredient_first,endColorstr=$gradient_last)";
+	
+}

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>百度光斑</title>
+	<style>
+		body{
+			background:#000;
+			text-align:center;
+			font:50px/200px "微软雅黑";
+		}
+		h1{
+			display:inline-block;
+			color:rgba(255,255,255,0.3);
+			background:-webkit-linear-gradient(-30deg,rgba(255,255,255,0) 100px,rgba(255,255,255,1) 180px,rgba(255,255,255,1) 240px,rgba(255,255,255,0) 300px) -300px no-repeat;
+			-webkit-background-clip:text;
+
+		}
+	</style>
+</head>
+<body>
+	<h1>大连理工大学</h1>
+	<script type="text/javascript">
+	var oH1=document.getElementsByTagName("h1")[0];
+	var timer=null,iLeft=-300;
+	function move(){
+		timer=setInterval(function(){
+			iLeft+=5;
+			if(iLeft==1000){
+				iLeft=-300;
+			}
+			oH1.style.backgroundPosition=iLeft+"px 0px";
+		},20);
+	}
+	move();
+	setInterval(move,5000);
+	</script>
+</body>
+</html>

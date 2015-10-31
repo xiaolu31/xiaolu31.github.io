@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>登陆界面</title>
+    <link rel="stylesheet" type="text/css" href="css/login.css">
+</head>
+<body>
+<div id="wrap">
+    <img  src="img/banner.jpg" style="height: 100%;width: 100%">
+    <div id="divLogin" >
+        <h3>用户登陆</h3>
+        <div class="content">
+            <div>用户：<input id="username" type="text" class="logintxt"/> </div>
+            <div>密码：<input id="userpass" type="password" class="logintxt"/> </div>
+            <div id="divbtn">
+                <input id="btntrue" type="button" value="登陆" class="btn"/>&nbsp;&nbsp;&nbsp;&nbsp;
+                <input id="btncancel" type="button" value="取消" class="btn"/>
+            </div>
+            <span id="state"></span>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="lib/jquery-2.1.3.js"></script>
+<script type="text/javascript" src="js/login.js"></script>
+</body>
+</html>

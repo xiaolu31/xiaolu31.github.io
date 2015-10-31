@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style id="css">
+	body,ul,ol{
+		margin:0;
+		padding:0;
+	}
+	li{
+		list-style:none;
+	}
+	#wrap{
+		width:800px;
+		margin:100px auto 0;
+	}
+	#picList{
+		width:800px;
+		height:360px;
+		-webkit-perspective:800px;
+		/*-webkit-perspective-origin:right;*/
+	}
+	#picList li{
+		width:50px;
+		height:360px;
+		position: relative;
+		-webkit-transform-style:preserve-3d;
+		-webkit-transform-origin:center center -180px;
+		float:left;
+	}
+	#picList li a{
+		width:100%;
+		height:100%;
+		position: absolute;
+		left:0;
+		top:0;
+	}
+	#picList li a:nth-of-type(1){
+		background: url(huandengpian/1.jpg) no-repeat;
+	}
+	#picList li a:nth-of-type(2){
+		background: url(huandengpian/2.jpg) no-repeat;
+		-webkit-transform-origin:bottom;
+		-webkit-transform:rotateX(90deg);
+		top:-360px;
+	}
+	#picList li a:nth-of-type(3){
+		background: url(huandengpian/3.jpg) no-repeat;
+		-webkit-transform:translateZ(-360px) rotateX(180deg);
+
+	}
+	#picList li a:nth-of-type(4){
+		background: url(huandengpian/4.jpg) no-repeat;
+		-webkit-transform-origin:top;
+		-webkit-transform:rotateX(-90deg);
+		top:360px;
+	}
+	#picList li span{
+		position: absolute;
+		width:360px;
+		height:360px;
+		background:#333;
+	}
+	#picList li span:nth-of-type(1){
+		-webkit-transform-origin:left;
+		-webkit-transform:rotateY(90deg);
+		left:0;
+
+	}
+	#picList li span:nth-of-type(2){
+		right:0;
+		-webkit-transform-origin:right;
+		-webkit-transform:rotateY(-90deg);
+	}
+	#btns{
+		float:right;
+		padding:10px 0;
+
+	}
+	#btns li{
+		width:40px;
+		height:40px;
+		background:#000;
+		color:#fff;
+		border-radius:50%;
+		font:italic 30px/40px Arial;
+		float:left;
+		margin:0 5px;
+		text-align: center;
+		cursor:pointer;
+	}
+	#btns .active{
+		background:#f60;
+	}
+
+
+	</style>
+</head>
+<body>
+	<div id="wrap">
+		<ul id="picList">
+			
+		</ul>
+		<ol id="btns">
+			<li class="active">1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+			
+		</ol>
+	</div>
+	<script type="text/javascript">
+	var oPicList=document.getElementById("picList"),oCss=document.getElementById("css");
+	var sLi="",sCss="",iNow=0;
+	var iLiw=50,zIndex=0;
+	var iLength=oPicList.clientWidth/iLiw;
+	var aBtns=document.getElementById("btns").getElementsByTagName("li");
+	var aLi=oPicList.children;
+	for(var i=0;i<iLength;i++){
+		i>iLength/2?zIndex--:zIndex++;
+		sLi+="<li><a href='#'></a><a href='#'></a><a href='#'></a><a href='#'></a><span></span><span></span></li>";
+		sCss+="#picList li:nth-of-type("+(i+1)+") a{background-position:-"+i*iLiw+"px 0}";
+		sCss+="#picList li:nth-of-type("+(i+1)+") {z-index:"+zIndex+"}";
+	}
+	oPicList.innerHTML=sLi;
+	oCss.innerHTML+=sCss;
+	for(var i=0;i<aBtns.length;i++){
+		(function(j){
+			aBtns[j].onclick=function(){
+				for(var i=0;i<aLi.length;i++){
+					aLi[i].style.transition="0.5s "+i*50+"ms";
+					aLi[i].style.WebkitTransform="rotateX(-"+j*90+"deg)";
+				}
+				this.className="active";
+				aBtns[iNow].className="";
+				iNow=j;
+				
+			}
+			
+		})(i)
+	}
+	</script>
+</body>
+</html>	

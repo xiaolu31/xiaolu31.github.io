@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>定位的特性</title>
+	<style>
+	#menu{
+		width:100px;
+		height:100px;
+		position:fixed;
+		left:0;
+		top:0;
+	}
+	#menu_list{
+		position: relative;
+		width:92px;
+		height:92px;
+		background:red;
+		margin:4px;
+
+	}
+	#home{
+		position:absolute;
+		width:100px;
+		height:100px;
+		background:blue;
+		left:0;
+		top:0;
+
+	}
+#transform_test{
+	width:100px;
+	height:100px;
+	position: absolute;
+	left:300px;
+	top:100px;
+	-webkit-transform:rotate(-720deg);
+	border:1px solid red;
+	-webkit-transition:5s;
+}
+
+	</style>
+</head>
+<body>
+	<div id="menu">
+		<div id="menu_list"></div>
+		<div id="home"></div>
+	</div>
+	<p>绝对定位会在相对定位的上层，因为绝对定位会脱离文档流的，相对定位是不会离开文档流的。</p>
+	<div id="transform_test"></div>
+	<script type="text/javascript">
+	var oDiv=document.getElementById("transform_test");
+	setTimeout(function(){
+		alert(1);
+		oDiv.style.WebkitTransform="rotate(120deg)";
+
+	},5000);
+	
+	</script>
+</body>
+</html>

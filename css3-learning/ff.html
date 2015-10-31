@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<input type="text" id="txt1">
+	<script type="text/javascript">
+		var oInput = document.getElementById('txt1');
+			var oInput = document.getElementById('txt1');
+	
+	oInput.onkeyup = function (){
+			var reg = /^[1-9]\d*$/g,
+			text = oInput.value;
+			console.log(!reg.test(text)); 
+			if (!reg.test(text)) {
+				console.log(1);
+				oInput.style.color = 'red';
+			} else {
+				console.log(2);
+				oInput.style.color = 'black';
+			}
+		
+	}
+
+	</script>
+	
+
+</body>
+</html>

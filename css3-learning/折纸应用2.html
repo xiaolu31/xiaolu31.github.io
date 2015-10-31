@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+	<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+		<style>
+		body{
+			margin:0;
+			padding:0;
+		}
+		#wrap{
+			width:160px;
+			margin:30px auto;
+			-webkit-perspective:800px;
+			-webkit-transform-style:perserve-3d;
+			position: relative;
+		}
+		#wrap h2{
+			height:40px;
+			background:#F60;
+			color:#fff;
+			font:bold 16px/40px "微软雅黑";
+			text-align:center;
+			position: relative;
+			z-index:10;
+		}
+		#wrap div{
+			position: absolute;
+			width:100%;
+			top:32px;
+			left:0;
+			-webkit-transform-style:perserve-3d;
+			-webkit-transform-origin:top;
+			-webkit-transform:rotateX(-120deg);
+			
+		}
+		#wrap span{
+			height:30px;
+			background: #9F0;
+			display:block;
+			font:12px/30px "宋体";
+			color:#fff;
+			text-indent:20px;
+			box-shadow:inset 0 0 0 20px rgba(0,0,0,1);
+			transition:1s;
+		}
+		#wrap>div{
+			top:40px;
+		}
+		@-webkit-keyframes open{
+			0%{
+				-webkit-transform:rotateX(-120deg);
+			}
+			25%{
+				-webkit-transform:rotateX(20deg);
+			}
+			50%{
+				-webkit-transform:rotateX(-12deg);
+			}
+			75%{
+				-webkit-transform:rotateX(10deg);
+			}
+			100%{
+				-webkit-transform:rotateX(0deg);
+			}
+		}
+		@-webkit-keyframes hide{
+			0%{
+				-webkit-transform:rotateX(0deg);
+			}
+			
+			100%{
+				-webkit-transform:rotateX(-120deg);
+			}
+		}
+		#wrap .show{
+			-webkit-animation:2s open;
+			-webkit-transform:rotateX(0deg);
+		}
+		#wrap .hide{
+			-webkit-animation:0.8s hide;
+			-webkit-transform:rotateX(-120deg);
+		}
+		#wrap .show>span{
+			box-shadow:inset 0 0 0 20px rgba(0,0,0,0);
+		}
+
+		</style>
+	</head>
+	<body>
+	<input type="button" value="点击" id="btn1">
+	<input type="button" value="取消" id="btn2">
+		<div id="wrap">
+			<h2>我是标题</h2>
+			<div>
+				<span >1</span>
+				<div>
+					<span>2</span>
+					<div>
+						<span>3</span>
+						<div>
+							<span>4</span>
+							<div>
+								<span>5</span>
+								<div>
+									<span>6</span>
+									<div>
+										<span>7</span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript">
+		var oWrap=document.getElementById("wrap");
+		var oBtn=document.getElementById("btn1");
+		var aDivs=oWrap.getElementsByTagName("div");
+		var i=0,timer;
+		var bOff=true;
+		oBtn.onclick=function(){
+			if(timer){
+				return ;
+			}
+			if(bOff){
+				i=0;
+				timer=setInterval(function(){
+				aDivs[i].className="show";
+				i++;
+				if(i==aDivs.length){
+					clearInterval(timer);
+					timer=null;
+					bOff=!bOff;
+				}
+				},100);
+			}else{
+				i=aDivs.length-1;
+				timer=setInterval(function(){
+				aDivs[i].className="hide";
+				i--;
+				if(i<0){
+					clearInterval(timer);
+					timer=null;
+					bOff=!bOff;
+				}
+				},100);
+			}
+			// console.log(timer)
+			
+
+		}
+		</script>
+	</body>
+	</html>	
