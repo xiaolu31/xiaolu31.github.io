@@ -1,0 +1,20 @@
+﻿USE students;
+
+insert into `jiangxuejin`(`tb_student_id`,`jiangxuejin_rank`,`month_money`) values ('21211011','1',500.0);
+insert into `jiangxuejin`(`tb_student_id`,`jiangxuejin_rank`,`month_money`) values ('21211012','2',300.0);
+insert into `jiangxuejin`(`tb_student_id`,`jiangxuejin_rank`,`month_money`) values ('21211013','2',300.0);
+insert into `jiangxuejin`(`tb_student_id`,`jiangxuejin_rank`,`month_money`) values ('21211014','3',0.0);
+insert into `jiangxuejin`(`tb_student_id`,`jiangxuejin_rank`,`month_money`) values ('21211015','2',300.0);
+insert into `jiangxuejin`(`tb_student_id`,`jiangxuejin_rank`,`month_money`) values ('21211016','2',300.0);
+insert into `jiangxuejin`(`tb_student_id`,`jiangxuejin_rank`,`month_money`) values ('21211017','2',300.0);
+insert into `jiangxuejin`(`tb_student_id`,`jiangxuejin_rank`,`month_money`) values ('21211018','3',0.0);
+insert into `jiangxuejin`(`tb_student_id`,`jiangxuejin_rank`,`month_money`) values ('21211019','1',500.0);
+insert into `jiangxuejin`(`tb_student_id`,`jiangxuejin_rank`,`month_money`) values ('21211020','2',300.0);
+insert into `jiangxuejin`(`tb_student_id`,`jiangxuejin_rank`,`month_money`) values ('21211021','1',500.0);
+insert into `jiangxuejin`(`tb_student_id`,`jiangxuejin_rank`,`month_money`) values ('21211022','3',0.0);
+insert into `jiangxuejin`(`tb_student_id`,`jiangxuejin_rank`,`month_money`) values ('21211023','2',300.0);
+insert into `jiangxuejin`(`tb_student_id`,`jiangxuejin_rank`,`month_money`) values ('21211024','3',0.0);
+insert into `jiangxuejin`(`tb_student_id`,`jiangxuejin_rank`,`month_money`) values ('21211025','3',0.0);
+insert into `jiangxuejin`(`tb_student_id`,`jiangxuejin_rank`,`month_money`) values ('21211026','3',0.0);
+insert into `jiangxuejin`(`tb_student_id`,`jiangxuejin_rank`,`month_money`) values ('21211027','2',300.0);
+insert into `jiangxuejin`(`tb_student_id`,`jiangxuejin_rank`,`month_money`) values ('21211028','2',300.0);

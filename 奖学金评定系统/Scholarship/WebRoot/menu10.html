@@ -1,0 +1,445 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<style rel=stylesheet type=text/css>
+a{
+font-size: 14px;
+   }
+.favMenu {
+	BACKGROUND: buttonface;
+	COLOR: windowtext;
+	CURSOR: hand;
+	FONT: menu;
+	background-image:url(images/menu_bg.jpg)
+}
+
+.favMenu DIV {
+	WIDTH: 100%;
+	background-image:url(images/menu_bg.jpg)
+}
+
+.favMenu A {
+	COLOR: windowtext;
+	TEXT-DECORATION: none
+}
+
+.favMenu A:hover {
+	COLOR: windowtext;
+	TEXT-DECORATION: underline
+}
+
+.topFolder {
+	BORDER-BOTTOM: buttonface 1px solid;
+	BORDER-LEFT: buttonface 1px solid;
+	BORDER-RIGHT: buttonface 1px solid;
+	BORDER-TOP: buttonface 1px solid;
+	PADDING-BOTTOM: 2px;
+	PADDING-LEFT: 2px;
+	PADDING-RIGHT: 2px;
+	PADDING-TOP: 2px
+}
+
+.topItem {
+	BORDER-BOTTOM: buttonface 1px solid;
+	BORDER-LEFT: buttonface 1px solid;
+	BORDER-RIGHT: buttonface 1px solid;
+	BORDER-TOP: buttonface 1px solid;
+	PADDING-BOTTOM: 2px;
+	PADDING-LEFT: 2px;
+	PADDING-RIGHT: 2px;
+	PADDING-TOP: 2px
+}
+
+.subFolder {
+	PADDING-BOTTOM: 3px;
+	PADDING-LEFT: 3px;
+	PADDING-RIGHT: 3px;
+	PADDING-TOP: 3px
+}
+
+.subItem {
+	PADDING-BOTTOM: 3px;
+	PADDING-LEFT: 3px;
+	PADDING-RIGHT: 3px;
+	PADDING-TOP: 3px
+}
+
+.sub {
+	BACKGROUND: url() buttonface;
+	BORDER-BOTTOM: buttonhighlight 1px solid;
+	BORDER-LEFT: buttonshadow 1px solid;
+	BORDER-RIGHT: buttonhighlight 1px solid;
+	DISPLAY: none;
+	PADDING-TOP: 1px
+}
+
+.sub .sub {
+	BORDER-BOTTOM: 0px;
+	BORDER-LEFT: 0px;
+	BORDER-RIGHT: 0px;
+	BORDER-TOP: 0px
+}
+
+.icon {
+	HEIGHT: 16px;
+	MARGIN-RIGHT: 5px;
+	VERTICAL-ALIGN: top;
+	WIDTH: 16px
+}
+
+.outer {
+	BACKGROUND: buttonface;
+	BORDER-BOTTOM: buttonhighlight 1px solid;
+	BORDER-LEFT: buttonshadow 1px solid;
+	BORDER-RIGHT: buttonhighlight 1px solid;
+	BORDER-TOP: buttonshadow 1px solid;
+	PADDING-BOTTOM: 0px;
+	PADDING-LEFT: 0px;
+	PADDING-RIGHT: 0px;
+	PADDING-TOP: 0px
+}
+
+.inner {
+	BORDER-BOTTOM: buttonshadow 1px solid;
+	BORDER-LEFT: buttonhighlight 1px solid;
+	BORDER-RIGHT: buttonshadow 1px solid;
+	BORDER-TOP: buttonhighlight 1px solid;
+	OVERFLOW: hidden;
+	PADDING-BOTTOM: 0px;
+	PADDING-LEFT: 0px;
+	PADDING-RIGHT: 0px;
+	PADDING-TOP: 0px
+}
+
+.scrollButton {
+	BACKGROUND: buttonface;
+	BORDER-BOTTOM: buttonface 1px solid;
+	BORDER-LEFT: buttonface 1px solid;
+	BORDER-RIGHT: buttonface 1px solid;
+	BORDER-TOP: buttonface 1px solid;
+	COLOR: buttontext;
+	CURSOR: default;
+	DISPLAY: none;
+	FONT-FAMILY: webdings;
+	FONT-SIZE: 10px;
+	HEIGHT: 16px;
+	OVERFLOW: hidden;
+	POSITION: absolute;
+	TEXT-ALIGN: center;
+	WIDTH: 50px
+}
+
+.flat {
+	BORDER-BOTTOM: buttonface 1px solid;
+	BORDER-LEFT: buttonface 1px solid;
+	BORDER-RIGHT: buttonface 1px solid;
+	BORDER-TOP: buttonface 1px solid;
+	PADDING-BOTTOM: 0px;
+	PADDING-LEFT: 0px;
+	PADDING-RIGHT: 0px;
+	PADDING-TOP: 0px
+}
+</style>
+
+
+
+<!--欢迎来到站长特效网，我们网站收集大量高质量js特效，提供许多广告代码下载，网址：www.zzjs.net，zzjs@msn.com,用.net打造靓站-->
+<SCRIPT type=text/javascript>
+var selectedItem = null;
+var targetWin;
+document.onclick = handleClick;
+document.onmouseover = handleOver;
+document.onmouseout = handleOut;
+document.onmousedown = handleDown;
+document.onmouseup = handleUp;
+document.write(writeSubPadding(10));  //write the stylesheet for the sub. Getting the indention right
+function handleClick() {
+	el = getReal(window.event.srcElement, "tagName", "DIV");
+	if ((el.className == "topFolder") || (el.className == "subFolder")) {
+//		if (el.sub == null) el.sub = eval(el.id + "Sub");
+//		alert(el.sub);
+		el.sub = eval(el.id + "Sub");
+		if (el.sub.style.display == null) el.sub.style.display = "none";
+		if (el.sub.style.display != "block") { //hidden
+			//any other sub open?
+			if (el.parentElement.openedSub != null) {
+				var opener = eval(el.parentElement.openedSub + ".opener");
+				hide(el.parentElement.openedSub);
+				if (opener.className == "topFolder")
+					outTopItem(opener);
+			}
+			el.sub.style.display = "block";
+			el.sub.parentElement.openedSub = el.sub.id;
+			el.sub.opener = el;
+		}
+		else {
+			if (el.sub.openedSub != null) hide(el.sub.openedSub);
+			else hide(el.sub.id);
+		}
+	}
+//欢迎来到站长特效网，我们的网址是www.zzjs.net，很好记，zz站长，js就是js特效，本站收集大量高质量js代码，还有许多广告代码下载。
+	if ((el.className == "subItem") || (el.className == "subFolder")) {
+		if (selectedItem != null)
+			restoreSubItem(selectedItem);
+		highlightSubItem(el);
+	}
+	if ((el.className == "topItem") || (el.className == "topFolder")) {
+		if (selectedItem != null)
+			restoreSubItem(selectedItem);
+	}
+//欢迎来到站长特效网，我们的网址是www.zzjs.net，很好记，zz站长，js就是js特效，本站收集大量高质量js代码，还有许多广告代码下载。
+	if ((el.className == "topItem") || (el.className == "subItem")) {
+		if ((el.href != null) && (el.href != "")) {
+			if ((el.target == null) || (el.target == "")) {
+				if (window.opener == null) {
+//					alert(document.all.tags("BASE").item(0));
+					if (document.all.tags("BASE").item(0) != null)
+//						eval(document.all.tags("BASE").item(0).target + ".location = el.href");
+						window.open(el.href, document.all.tags("BASE").item(0).target);
+					else
+						window.location = el.href;					// HERE IS THE LOADING!!!
+				}
+				else {
+					window.opener.location =  el.href;
+				}
+			}
+			else {
+				window.open(el.href, el.target);
+//				eval(el.target + ".location = el.href");
+			}
+		}
+	}
+	var tmp  = getReal(el, "className", "favMenu");
+	if (tmp.className == "favMenu") fixScroll(tmp);
+}
+//欢迎来到站长特效网，我们的网址是www.zzjs.net，很好记，zz站长，js就是js特效，本站收集大量高质量js代码，还有许多广告代码下载。
+function handleOver() {
+	var fromEl = getReal(window.event.fromElement, "tagName", "DIV");
+	var toEl = getReal(window.event.toElement, "tagName", "DIV");
+	if (fromEl == toEl) return;
+	el = toEl;
+	if ((el.className == "topFolder") || (el.className == "topItem")) overTopItem(el);
+	if ((el.className == "subFolder") || (el.className == "subItem")) overSubItem(el);
+	if ((el.className == "topItem") || (el.className == "subItem")) {
+		if (el.href != null) {
+			if (el.oldtitle == null) el.oldtitle = el.title;
+			if (el.oldtitle != "")
+				el.title = el.oldtitle + "\n" + el.href;
+			else
+				el.title = el.oldtitle + el.href;
+		}
+	}
+	if (el.className == "scrollButton") overscrollButton(el);
+}
+function handleOut() {
+	var fromEl = getReal(window.event.fromElement, "tagName", "DIV");
+	var toEl = getReal(window.event.toElement, "tagName", "DIV");
+	if (fromEl == toEl) return;
+	el = fromEl;
+	if ((el.className == "topFolder") || (el.className == "topItem")) outTopItem(el);
+	if ((el.className == "subFolder") || (el.className == "subItem")) outSubItem(el);
+	if (el.className == "scrollButton") outscrollButton(el);
+}
+function handleDown() {
+	el = getReal(window.event.srcElement, "tagName", "DIV");
+	if (el.className == "scrollButton") {
+		downscrollButton(el);
+		var mark = Math.max(el.id.indexOf("Up"), el.id.indexOf("Down"));
+		var type = el.id.substr(mark);
+		var menuID = el.id.substring(0,mark);
+		eval("scroll" + type + "(" + menuID + ")");
+	}
+}
+function handleUp() {
+	el = getReal(window.event.srcElement, "tagName", "DIV");
+	if (el.className == "scrollButton") {
+		upscrollButton(el);
+		window.clearTimeout(scrolltimer);
+	}
+}
+//欢迎来到站长特效网，我们的网址是www.zzjs.net，很好记，zz站长，js就是js特效，本站收集大量高质量js代码，还有许多广告代码下载。
+////////////////////// EVERYTHING IS HANDLED ////////////////////////////
+function hide(elID) {
+	var el = eval(elID);
+	el.style.display = "none";
+	el.parentElement.openedSub = null;
+	if (el.openedSub != null) hide(el.openedSub);
+}
+function writeSubPadding(depth) {
+	var str, str2, val;
+	var str = "<style type='text/css'>\n";
+	for (var i=0; i < depth; i++) {
+		str2 = "";
+		val  = 0;
+		for (var j=0; j < i; j++) {
+			str2 += ".sub "
+			val += 10;
+		}
+		str += str2 + ".subFolder {padding-left: " + val + "px;}\n";
+		str += str2 + ".subItem   {padding-left: " + val + "px;}\n";
+	}
+	str += "</style>\n";
+	return str;
+}
+//If you wan't to change colors do so below
+function overTopItem(el) {
+	with (el.style) {
+		background   = "buttonface";
+		borderLeft   = "1px solid buttonhighlight";
+		borderRight  = "1px solid buttonshadow";
+		borderTop    = "1px solid buttonhighlight";
+		borderBottom = "1px solid buttonshadow";
+		paddingBottom = "2px";
+	}
+}
+function outTopItem(el) {
+	if ((el.sub != null) && (el.parentElement.openedSub == el.sub.id)) { //opened
+		with(el.style) {
+			borderTop = "1px solid buttonshadow";
+			borderLeft  = "1px solid buttonshadow";
+			borderRight    = "1px solid buttonhighlight";
+			borderBottom = "0px";
+			paddingBottom = "3px";
+			background = "url() buttonface";
+		}
+	}
+	else {
+		with (el.style) {
+			border = "1px solid buttonface";
+			background = "buttonface";
+			padding = "2px";
+		}
+	}
+}
+function overSubItem(el) {
+	el.style.textDecoration = "underline";
+}
+function outSubItem(el) {
+	el.style.textDecoration = "none";
+}
+function highlightSubItem(el) {
+	el.style.background = "buttonshadow";
+	el.style.color      = "white"; //"highlighttext";
+	selectedItem = el;
+}
+function restoreSubItem(el) {
+	el.style.background = "url() buttonface";
+	el.style.color      = "menutext";
+	selectedItem = null;
+}
+function overscrollButton(el) {
+	overTopItem(el);
+	el.style.padding = "0px";
+}
+function outscrollButton(el) {
+	outTopItem(el);
+	el.style.padding = "0px";
+}
+function downscrollButton(el) {
+	with (el.style) {
+		borderRight   = "1px solid buttonhighlight";
+		borderLeft  = "1px solid buttonshadow";
+		borderBottom    = "1px solid buttonhighlight";
+		borderTop = "1px solid buttonshadow";
+	}
+}
+function upscrollButton(el) {
+	overTopItem(el);
+	el.style.padding = "0px";
+}
+// ...till here
+function getReal(el, type, value) {
+	var temp = el;
+	while ((temp != null) && (temp.tagName != "BODY")) {
+		if (eval("temp." + type) == value) {
+			el = temp;
+			return el;
+		}
+		temp = temp.parentElement;
+	}
+	return el;
+}
+////////////////////////////////////////////////////////////////////////////////////////
+// Fix the scrollbars
+var globalScrollContainer;	// Needed because the object is called through windwow.setTimeout
+var overflowTimeout = 1;
+function fixScroll(el) {
+	globalScrollContainer = el;
+	window.setTimeout('changeOverflow(globalScrollContainer)', overflowTimeout);
+}//欢迎来到站长特效网，我们的网址是www.zzjs.net，很好记，zz站长，js就是js特效，本站收集大量高质量js代码，还有许多广告代码下载。
+function changeOverflow(el) {
+	if (el.offsetHeight > el.parentElement.clientHeight)
+		window.setTimeout('globalScrollContainer.parentElement.style.overflow = "auto";', overflowTimeout);
+	else
+		window.setTimeout('globalScrollContainer.parentElement.style.overflow = "hidden";', overflowTimeout);
+}
+</SCRIPT>
+<!-- Favorite Bar Starts Here -->
+<DIV class=outer style="HEIGHT: 680px; MARGIN: 1px; WIDTH: 155px;background-image:url(images/menu_bg.jpg)">
+	<DIV class=inner style="HEIGHT: 680px; WIDTH: 155px;background-image:url(images/menu_bg.jpg)">
+		<DIV class=favMenu id=aMenu>
+			<DIV class=topFolder id=samples >
+				<img class="icon" height="16" src="images/tb.png" width="16"
+					style="cursor: pointer;" onload="return imgzoom(this,600);" style="cursor:pointer;" />
+					<A href="/Scholarship/studentinfo" target=main><font color=blue>个人信息</font></A>
+			</DIV>
+			<DIV class=topFolder id=docs>
+				<img class="icon" height="16" src="images/tb.png" width="16"
+					style="cursor: pointer;" onload="return imgzoom(this,600);" style="cursor:pointer;" />
+					<A href="/Scholarship/Student_grade" target=main><font color=blue>已修课程成绩</font></A>
+			</DIV>
+			<DIV class=topFolder id=links>
+				<img class="icon" height="16" src="images/tb.png" width="16"
+					style="cursor: pointer;" onload="return imgzoom(this,600);" style="cursor:pointer;" />
+					<A href="/Scholarship/tijiao_chengji" target=main><font color=blue>提交课程成绩</font></A>
+			</DIV>
+			
+			<DIV class=topFolder id=links>
+				<img class="icon" height="16" src="images/tb.png" width="16"
+					style="cursor: pointer;" onload="return imgzoom(this,600);" style="cursor:pointer;" />
+					<A href="/Scholarship/keyan/keyan.jsp" target=main><font color=blue>提交科研成绩</font></A>
+			</DIV>
+			
+			<DIV class=topFolder id=activity style="font-size:14px;">
+				<img class="icon" height="16" src="images/tb.png" width="16"
+					style="cursor: pointer;" onload="return imgzoom(this,600);" style="cursor:pointer;" />
+				<A><font color=blue>提交活动成绩</font></A>
+			<DIV class=sub id=activitySub>
+				<DIV class=subItem  href="
+					/Scholarship/huodong/huodong.jsp">
+					<img class="icon" height="16" src="images/tb.png" width="16" style="cursor:pointer;" 
+					onload="return imgzoom(this,600);"  style="cursor:pointer;"/>
+					<A href="/Scholarship/huodong/huodong.jsp" target=main><font color=blue>文艺竞赛成绩</font></A>
+					</DIV>
+				<DIV class=subItem href="
+					/Scholarship/zhiwu/zhiwu.jsp">
+					<img class="icon" height="16" src="images/tb.png" width="16" style="cursor:pointer;" 
+					onload="return imgzoom(this,600);"  style="cursor:pointer;"/>
+					<A href="/Scholarship/zhiwu/zhiwu.jsp"" target=main><font color=blue>职务成绩</font></A>
+					</DIV>
+			    <DIV class=subItem href="
+					/Scholarship/xianxue/xianxue.jsp">
+					<img class="icon" height="16" src="images/tb.png" width="16" style="cursor:pointer;" 
+					onload="return imgzoom(this,600);" style="cursor:pointer;"/>
+					<A href="/Scholarship/xianxue/xianxue.jsp" target=main><font color=blue>公益活动成绩</font></A>
+					</DIV>
+		    </DIV>
+
+			<DIV class=topFolder id=todo style="font-size:14px;">
+				<img class="icon" height="16" src="images/tb.png" width="16"
+					style="cursor: pointer;" onload="return imgzoom(this,600);" style="cursor:pointer;" />
+				<A><font color=blue>奖学金信息</font></A>
+			</DIV>
+			<DIV class=sub id=todoSub>
+			    <DIV class=subItem href="
+					/Scholarship/jiangxuejingrade">
+					<img class="icon" height="16" src="images/tb.png" width="16" style="cursor:pointer;" 
+					onload="return imgzoom(this,600);" style="cursor:pointer;"/>
+					<A href="/Scholarship/jiangxuejingrade" target=main><font color=blue>奖学金提交成绩</font></A>
+					</DIV>
+			    <DIV class=subItem href="
+					/Scholarship/outcome.jsp">
+					<img class="icon" height="16" src="images/tb.png" width="16" style="cursor:pointer;" 
+					onload="return imgzoom(this,600);" style="cursor:pointer;"/>
+					<A href="/Scholarship/outcome.jsp" target=main><font color=blue>奖学金结果查询</font></A>
+					</DIV>
+		    </DIV>
+		</DIV>

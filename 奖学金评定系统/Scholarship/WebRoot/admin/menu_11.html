@@ -1,0 +1,163 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<style rel=stylesheet type=text/css> 
+a{ 
+font-size: 14px; 
+   } 
+.favMenu { 
+	BACKGROUND: buttonface; 
+	COLOR: windowtext; 
+	CURSOR: hand; 
+	FONT: menu; 
+	background-image:url(../images/menu_bg.jpg) 
+} 
+ 
+.favMenu DIV { 
+	WIDTH: 100%; 
+	background-image:url(../images/menu_bg.jpg) 
+} 
+ 
+.favMenu A { 
+	COLOR: windowtext; 
+	TEXT-DECORATION: none 
+} 
+ 
+.favMenu A:hover { 
+	COLOR: windowtext; 
+	TEXT-DECORATION: underline 
+} 
+ 
+.topFolder { 
+	BORDER-BOTTOM: buttonface 1px solid; 
+	BORDER-LEFT: buttonface 1px solid; 
+	BORDER-RIGHT: buttonface 1px solid; 
+	BORDER-TOP: buttonface 1px solid; 
+	PADDING-BOTTOM: 2px; 
+	PADDING-LEFT: 2px; 
+	PADDING-RIGHT: 2px; 
+	PADDING-TOP: 2px 
+} 
+ 
+.topItem { 
+	BORDER-BOTTOM: buttonface 1px solid; 
+	BORDER-LEFT: buttonface 1px solid; 
+	BORDER-RIGHT: buttonface 1px solid; 
+	BORDER-TOP: buttonface 1px solid; 
+	PADDING-BOTTOM: 2px; 
+	PADDING-LEFT: 2px; 
+	PADDING-RIGHT: 2px; 
+	PADDING-TOP: 2px 
+} 
+ 
+.subFolder { 
+	PADDING-BOTTOM: 3px; 
+	PADDING-LEFT: 3px; 
+	PADDING-RIGHT: 3px; 
+	PADDING-TOP: 3px 
+} 
+ 
+.subItem { 
+	PADDING-BOTTOM: 3px; 
+	PADDING-LEFT: 3px; 
+	PADDING-RIGHT: 3px; 
+	PADDING-TOP: 3px 
+} 
+ 
+.sub { 
+	BACKGROUND: url() buttonface; 
+	BORDER-BOTTOM: buttonhighlight 1px solid; 
+	BORDER-LEFT: buttonshadow 1px solid; 
+	BORDER-RIGHT: buttonhighlight 1px solid; 
+	DISPLAY: none; 
+	PADDING-TOP: 1px 
+} 
+ 
+.sub .sub { 
+	BORDER-BOTTOM: 0px; 
+	BORDER-LEFT: 0px; 
+	BORDER-RIGHT: 0px; 
+	BORDER-TOP: 0px 
+} 
+ 
+.icon { 
+	HEIGHT: 16px; 
+	MARGIN-RIGHT: 5px; 
+	VERTICAL-ALIGN: top; 
+	WIDTH: 16px 
+} 
+ 
+.outer { 
+	BACKGROUND: buttonface; 
+	BORDER-BOTTOM: buttonhighlight 1px solid; 
+	BORDER-LEFT: buttonshadow 1px solid; 
+	BORDER-RIGHT: buttonhighlight 1px solid; 
+	BORDER-TOP: buttonshadow 1px solid; 
+	PADDING-BOTTOM: 0px; 
+	PADDING-LEFT: 0px; 
+	PADDING-RIGHT: 0px; 
+	PADDING-TOP: 0px 
+} 
+ 
+.inner { 
+	BORDER-BOTTOM: buttonshadow 1px solid; 
+	BORDER-LEFT: buttonhighlight 1px solid; 
+	BORDER-RIGHT: buttonshadow 1px solid; 
+	BORDER-TOP: buttonhighlight 1px solid; 
+	OVERFLOW: hidden; 
+	PADDING-BOTTOM: 0px; 
+	PADDING-LEFT: 0px; 
+	PADDING-RIGHT: 0px; 
+	PADDING-TOP: 0px 
+} 
+ 
+.scrollButton { 
+	BACKGROUND: buttonface; 
+	BORDER-BOTTOM: buttonface 1px solid; 
+	BORDER-LEFT: buttonface 1px solid; 
+	BORDER-RIGHT: buttonface 1px solid; 
+	BORDER-TOP: buttonface 1px solid; 
+	COLOR: buttontext; 
+	CURSOR: default; 
+	DISPLAY: none; 
+	FONT-FAMILY: webdings; 
+	FONT-SIZE: 10px; 
+	HEIGHT: 16px; 
+	OVERFLOW: hidden; 
+	POSITION: absolute; 
+	TEXT-ALIGN: center; 
+	WIDTH: 50px 
+} 
+ 
+.flat { 
+	BORDER-BOTTOM: buttonface 1px solid; 
+	BORDER-LEFT: buttonface 1px solid; 
+	BORDER-RIGHT: buttonface 1px solid; 
+	BORDER-TOP: buttonface 1px solid; 
+	PADDING-BOTTOM: 0px; 
+	PADDING-LEFT: 0px; 
+	PADDING-RIGHT: 0px; 
+	PADDING-TOP: 0px 
+}&nbsp;</style>
+<!-- Favorite Bar Starts Here -->
+<DIV class=outer style="HEIGHT: 680px; MARGIN: 1px; WIDTH: 155px;background-image:url(../images/menu_bg.jpg)">
+	<DIV class=inner style="HEIGHT: 680px; WIDTH: 155px;background-image:url(../images/menu_bg.jpg)">
+		<DIV class=favMenu id=aMenu>
+			<DIV class=topFolder id=samples >
+				<img height="16" width="16" class="icon" src="../images/tb.png" style="cursor: pointer;" onload="return imgzoom(this,600);">
+				 <A href="/Scholarship/admin/ProgramSelection.jsp" target=main><font color=blue>奖学金方案设置</font></A>
+			<TR height=20><TD>&nbsp;</TD></TR>
+			</DIV>
+			<DIV class=topFolder id=docs>
+				<img height="16" width="16" class="icon" src="../images/tb.png" style="cursor: pointer;" onload="return imgzoom(this,600);"> 
+				<A href="/Scholarship/Upgrade_detail" target=main><font color=blue>奖学金升档信息</font></A>
+			<TR height=20><TD>&nbsp;</TD></TR>
+			</DIV>
+			<DIV class=topFolder id=links>
+				<img height="16" width="16" class="icon" src="../images/tb.png" style="cursor: pointer;" onload="return imgzoom(this,600);"> <A href="/Scholarship/Downgrade_detail" target=main><font color=blue>奖学金降档信息</font></A>
+			<TR height=20><TD>&nbsp;</TD></TR>
+			</DIV>
+			
+			<DIV class=topFolder id=grade style="font-size:14px;">
+				<img height="16" width="16" class="icon" src="../images/tb.png" style="cursor: pointer;" onload="return imgzoom(this,600);">
+				<A href="/Scholarship/admin/Result.jsp" target=main> <font color=blue>奖学金调整结果</font></A>
+			</DIV>
+		</DIV>

@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" 
+	xmlns="http://java.sun.com/xml/ns/javaee" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+  <servlet>
+    <servlet-name>StudentServlet</servlet-name>
+    <servlet-class>cn.itcast.web.student.StudentServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>studentinfo</servlet-name>
+    <servlet-class>cn.itcast.web.student.studentinfo</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>Student_grade</servlet-name>
+    <servlet-class>cn.itcast.web.student.Student_grade</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>tijiao_chengji</servlet-name>
+    <servlet-class>cn.itcast.web.student.tijiao_chengji</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>KeyanServlet</servlet-name>
+    <servlet-class>cn.itcast.web.student.KeyanServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>HuodongServlet</servlet-name>
+    <servlet-class>cn.itcast.web.student.HuodongServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>ZhiwuServlet</servlet-name>
+    <servlet-class>cn.itcast.web.student.ZhiwuServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>XianxueServlet</servlet-name>
+    <servlet-class>cn.itcast.web.student.XianxueServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>jiangxuejingrade</servlet-name>
+    <servlet-class>cn.itcast.web.student.jiangxuejingrade</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>ProgramSelection</servlet-name>
+    <servlet-class>cn.itcast.web.admin.ProgramSelection</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>ExitServlet</servlet-name>
+    <servlet-class>cn.itcast.web.student.ExitServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>UpdadePassword</servlet-name>
+    <servlet-class>cn.itcast.web.student.UpdadePassword</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>Upgrade_detail</servlet-name>
+    <servlet-class>cn.itcast.web.admin.Upgrade_detail</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>Downgrade_detail</servlet-name>
+    <servlet-class>cn.itcast.web.admin.Downgrade_detail</servlet-class>
+  </servlet>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <servlet-mapping>
+    <servlet-name>StudentServlet</servlet-name>
+    <url-pattern>/StudentServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>studentinfo</servlet-name>
+    <url-pattern>/studentinfo</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>Student_grade</servlet-name>
+    <url-pattern>/Student_grade</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>tijiao_chengji</servlet-name>
+    <url-pattern>/tijiao_chengji</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>KeyanServlet</servlet-name>
+    <url-pattern>/KeyanServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>HuodongServlet</servlet-name>
+    <url-pattern>/HuodongServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ZhiwuServlet</servlet-name>
+    <url-pattern>/ZhiwuServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>XianxueServlet</servlet-name>
+    <url-pattern>/XianxueServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>jiangxuejingrade</servlet-name>
+    <url-pattern>/jiangxuejingrade</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ProgramSelection</servlet-name>
+    <url-pattern>/ProgramSelection</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ExitServlet</servlet-name>
+    <url-pattern>/ExitServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>UpdadePassword</servlet-name>
+    <url-pattern>/UpdadePassword</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>Upgrade_detail</servlet-name>
+    <url-pattern>/Upgrade_detail</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>Downgrade_detail</servlet-name>
+    <url-pattern>/Downgrade_detail</url-pattern>
+  </servlet-mapping>
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
+</web-app>

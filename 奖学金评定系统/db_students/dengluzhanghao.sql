@@ -1,0 +1,20 @@
+﻿USE students;
+
+insert into `dengluzhanghao`(`id`,`password`) values ('21211011','000');
+insert into `dengluzhanghao`(`id`,`password`) values ('21211012','000');
+insert into `dengluzhanghao`(`id`,`password`) values ('21211013','000');
+insert into `dengluzhanghao`(`id`,`password`) values ('21211014','000');
+insert into `dengluzhanghao`(`id`,`password`) values ('21211015','000');
+insert into `dengluzhanghao`(`id`,`password`) values ('21211016','000');
+insert into `dengluzhanghao`(`id`,`password`) values ('21211017','000');
+insert into `dengluzhanghao`(`id`,`password`) values ('21211018','000');
+insert into `dengluzhanghao`(`id`,`password`) values ('21211019','000');
+insert into `dengluzhanghao`(`id`,`password`) values ('21211020','000');
+insert into `dengluzhanghao`(`id`,`password`) values ('21211021','000');
+insert into `dengluzhanghao`(`id`,`password`) values ('21211022','000');
+insert into `dengluzhanghao`(`id`,`password`) values ('21211023','000');
+insert into `dengluzhanghao`(`id`,`password`) values ('21211024','000');
+insert into `dengluzhanghao`(`id`,`password`) values ('21211025','000');
+insert into `dengluzhanghao`(`id`,`password`) values ('21211026','000');
+insert into `dengluzhanghao`(`id`,`password`) values ('21211027','000');
+insert into `dengluzhanghao`(`id`,`password`) values ('21211028','000');
