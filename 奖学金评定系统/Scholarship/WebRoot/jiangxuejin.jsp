@@ -25,7 +25,6 @@ $(".trigger").click(function(){
 	return false;
 });
 });
-}
 </script>
 <style>
 h2{
