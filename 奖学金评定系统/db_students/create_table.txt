@@ -1,0 +1,61 @@
+create table keyan(
+id int unsigned not null  primary key,
+tb_student_id int,
+keyantype char(30),
+qikanname char(30),
+papertitle char(30),
+paperauthor char(30))DEFAULT CHARSET=utf8;
+
+create table activity(
+id int unsigned not null  primary key,
+tb_student_id int,
+activitytype char(30),
+activitylayer char(30),
+activitydetail char(30))DEFAULT CHARSET=utf8;
+
+create table course(
+course_id int unsigned not null  primary key,
+course_name char(30),
+course_hour char(30),
+course_credit char(30),
+course_character char(30))DEFAULT CHARSET=utf8;
+
+create table dengluzhanghao(
+id int unsigned not null  primary key,
+password char(30))DEFAULT CHARSET=utf8;
+
+create table jiangxuejin(
+tb_student_id int unsigned not null  primary key,
+jiangxuejin_rank char(30),
+month_money char(30))DEFAULT CHARSET=utf8;
+
+create table positiontable(
+id int unsigned not null  primary key,
+tb_student_id int,
+positiontype char(30),
+positiondetail char(30))DEFAULT CHARSET=utf8;
+
+create table tb_student(
+id int unsigned not null  primary key,
+name char(30),
+sex char(30),
+birthday date,
+major char(30),
+guide_teacher char(30),
+coursegrade float,
+gradelayer int,
+xianxue_counter float,
+sum_keyan int,
+sum_activity int,
+sum_position int,
+sum_jiangxuejin float,
+scholar_layer_old int,
+scholar_layer_new int)DEFAULT CHARSET=utf8;
+
+create table grade(
+tb_student_id int unsigned not null,
+course_id int unsigned not null,
+score char(30),
+layer char(30),
+flag char(30),
+primary key(tb_student_id,course_id))DEFAULT CHARSET=utf8;
